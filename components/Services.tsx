@@ -30,7 +30,7 @@ const Services = () => (
           <h2 className="text-4xl font-bold text-white mb-2">Our Services</h2>
           <p className="text-gray-500">Comprehensive financial solutions tailored for you.</p>
         </div>
-        <span className="text-blue-500 cursor-pointer hover:underline font-medium">See All →</span>
+        <span className="text-[#c5a358] cursor-pointer hover:underline font-medium">See All →</span>
       </div>
 
       {/* grid items-stretch is default, ensuring all column heights are equal */}
@@ -46,7 +46,7 @@ const Services = () => (
           >
             <ElectricBorder
               className="flex "
-              color="#3b82f6"
+              color="#c5a358"
               speed={1.5}
               chaos={0.3}
               thickness={2}
@@ -59,7 +59,7 @@ const Services = () => (
                    <div className="w-full h-full bg-[#1c212c] group-hover:scale-105 transition-transform duration-500" />
                 </div>
 
-                <div className="w-12 h-12 bg-blue-600/10 rounded-lg flex items-center justify-center text-blue-500 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 flex-shrink-0">
+                <div className="w-12 h-12  rounded-lg flex items-center justify-center text-[#a6853f] mb-6 group-hover:bg-[#a6853f] group-hover:text-white transition-colors duration-300 flex-shrink-0">
                   {service.icon}
                 </div>
                 
@@ -71,7 +71,7 @@ const Services = () => (
                   {service.desc}
                 </p>
                 
-                <button className="text-blue-500 text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all mt-auto">
+                <button className="text-[#c5a358] text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all mt-auto">
                   Learn More <span>→</span>
                 </button>
               </div>

@@ -38,7 +38,7 @@ const WhyChooseUs = () => {
           className="mb-16"
         >
           <h2 className="text-4xl font-bold text-white mb-4">Why Choose Us</h2>
-          <div className="w-20 h-1 bg-blue-600 rounded-full" />
+          <div className="w-20 h-1 bg-[#c5a358] rounded-full" />
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -55,11 +55,11 @@ const WhyChooseUs = () => {
                 spotlightColor="rgba(37, 99, 235, 0.15)" // Using a blue glow to match FinAudit
               >
                 <div className="p-8 h-full flex flex-col group">
-                  <div className="w-14 h-14 rounded-xl bg-blue-600/10 flex items-center justify-center text-blue-500 mb-8 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-blue-600/10 flex items-center justify-center text-[#c5a358] mb-8 group-hover:scale-110 group-hover:bg-[#a6853f] group-hover:text-white transition-all duration-300">
                     {f.icon}
                   </div>
                   
-                  <h4 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                  <h4 className="text-xl font-bold text-white mb-4 group-hover:text-[#a6853f] transition-colors">
                     {f.title}
                   </h4>
                   

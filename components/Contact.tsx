@@ -14,7 +14,7 @@ const Contact = () => (
             { icon: <MapPin />, label: "Visit Us", val: "123 Financial District, NY" }
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-4 p-4 bg-[#11141b] rounded-xl border border-white/5">
-              <div className="text-blue-500">{item.icon}</div>
+              <div className="text-[#c5a358]">{item.icon}</div>
               <div>
                 <p className="text-gray-500 text-xs">{item.label}</p>
                 <p className="text-white font-medium">{item.val}</p>
@@ -27,15 +27,15 @@ const Contact = () => (
       <div className="bg-[#11141b] p-8 rounded-2xl border border-white/5">
         <form className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            <input type="text" placeholder="Name" className="bg-[#0a0c10] border border-white/10 p-3 rounded-md text-white outline-none focus:border-blue-500" />
-            <input type="email" placeholder="Email" className="bg-[#0a0c10] border border-white/10 p-3 rounded-md text-white outline-none focus:border-blue-500" />
+            <input type="text" placeholder="Name" className="bg-[#0a0c10] border border-white/10 p-3 rounded-md text-white outline-none focus:border-[#c5a358]" />
+            <input type="email" placeholder="Email" className="bg-[#0a0c10] border border-white/10 p-3 rounded-md text-white outline-none focus:border-[#c5a358]" />
           </div>
           <select className="w-full bg-[#0a0c10] border border-white/10 p-3 rounded-md text-gray-400 outline-none">
             <option>Statutory Audit</option>
             <option>Tax Advisory</option>
           </select>
-          <textarea placeholder="Tell us about your needs..." rows={4} className="w-full bg-[#0a0c10] border border-white/10 p-3 rounded-md text-white outline-none focus:border-blue-500" />
-          <button className="w-full bg-blue-600 text-white font-bold py-3 rounded-md hover:bg-blue-700 transition">Send Message</button>
+          <textarea placeholder="Tell us about your needs..." rows={4} className="w-full bg-[#0a0c10] border border-white/10 p-3 rounded-md text-white outline-none focus:border-[#c5a358]" />
+          <button className="w-full bg-[#c5a358] text-white font-bold py-3 rounded-md hover:bg-[#a6853f] hover:cursor-pointer transition">Send Message</button>
         </form>
       </div>
     </div>

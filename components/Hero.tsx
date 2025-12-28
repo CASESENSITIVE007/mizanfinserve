@@ -10,7 +10,7 @@ const Hero = () => (
     {/* Liquid Background Layer */}
     <div className="absolute inset-0 z-0 opacity-60">
       <LiquidEther
-        colors={[ '#1e40af', '#3b82f6', '#1e1b4b' ]} // Deep blue palette for finance
+        colors={[ '#1e40af', '#c5a358', '#1e1b4b' ]} // Deep blue palette for finance
         mouseForce={25}
         cursorSize={120}
         isViscous={false}
@@ -42,14 +42,14 @@ const Hero = () => (
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             transition={{ delay: 0.2 }}
-            className="inline-block px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6"
+            className="inline-block px-3 py-1 rounded-full border border-[#c5a358] bg-[#c5a358] text-white text-xs font-bold uppercase tracking-widest mb-6"
           >
             Since 1994
           </motion.div>
 
           <h1 className="text-6xl md:text-8xl font-bold text-white leading-[1.05] tracking-tight">
             Precision in <br /> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c5a358] to-blue-600">
               Every Figure.
             </span>
           </h1>
@@ -63,7 +63,7 @@ const Hero = () => (
             <motion.button 
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-all"
+              className="bg-[#c5a358] text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-all"
             >
               Request Audit <ArrowRight size={20} />
             </motion.button>

@@ -35,7 +35,7 @@ const testimonialNodes = reviews.map((r, i) => ({
   node: (
     <div key={i} className="w-[400px] bg-[#11141b] p-8 rounded-2xl border border-white/5 mx-4 h-full flex flex-col justify-between">
       <div>
-        <div className="flex gap-1 mb-4 text-blue-500 text-lg">
+        <div className="flex gap-1 mb-4 text-[#c5a358] text-lg">
           {[...Array(r.stars)].map((_, starIndex) => (
             <span key={starIndex} className="">★</span>
           ))}
@@ -46,7 +46,7 @@ const testimonialNodes = reviews.map((r, i) => ({
       </div>
       
       <div className="flex items-center gap-4 border-t border-white/5 pt-4">
-        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
+        <div className="w-10 h-10 bg-[#c5a358] rounded-full flex items-center justify-center text-white font-bold text-xs">
           {r.name.charAt(0)}
         </div>
         <div>
