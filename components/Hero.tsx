@@ -1,23 +1,30 @@
 "use client"
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import LiquidEther from './LiquidEther';
+
+// Dynamically import the heavy background component
+// ssr: false is required because LiquidEther likely uses window/browser APIs
+const LiquidEther = dynamic(() => import('./LiquidEther'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-[#0a0c10]" /> // Fallback while loading
+});
 
 const Hero = () => (
   <section className="relative w-full min-h-[85vh] flex items-center bg-[#0a0c10] overflow-hidden">
     
-    {/* Liquid Background Layer */}
+    {/* Liquid Background Layer - Now Lazy Loaded */}
     <div className="absolute inset-0 z-0 opacity-60">
       <LiquidEther
-        colors={[ '#1e40af', '#c5a358', '#1e1b4b' ]} // Deep blue palette for finance
-        mouseForce={25}
-        cursorSize={120}
+        colors={[ '#1e40af', '#c5a358', '#1e1b4b' ]}
+        mouseForce={20} // Slightly reduced to save CPU
+        cursorSize={100}
         isViscous={false}
         viscous={30}
-        iterationsViscous={32}
-        iterationsPoisson={32}
-        resolution={0.5}
+        iterationsViscous={24} // Reduced from 32 to improve TBT
+        iterationsPoisson={24} // Reduced from 32 to improve TBT
+        resolution={0.4}       // Reduced from 0.5 for performance
         isBounce={false}
         autoDemo={true}
         autoSpeed={0.4}
@@ -26,11 +33,10 @@ const Hero = () => (
         autoResumeDelay={2000}
         autoRampDuration={1.0}
       />
-      {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0c10]/20 via-transparent to-[#0a0c10]" />
     </div>
 
-    {/* Content Layer */}
+    {/* Content Layer - This will now render immediately */}
     <div className="max-w-7xl mx-auto px-8 w-full z-10 relative">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <motion.div
@@ -61,7 +67,7 @@ const Hero = () => (
 
           <div className="mt-10 flex flex-wrap gap-5">
             <motion.button 
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)" }}
+              whileHover={{ scale: 1.05, backgroundColor: '#a6853f', boxShadow: "0 0 20px rgba(197, 163, 88, 0.4)" }}
               whileTap={{ scale: 0.95 }}
               className="bg-[#c5a358] text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-all"
             >
@@ -77,7 +83,6 @@ const Hero = () => (
           </div>
         </motion.div>
 
-        {/* Optional: Right side glass element to balance the liquid background */}
         <motion.div 
            initial={{ opacity: 0, scale: 0.8 }}
            animate={{ opacity: 1, scale: 1 }}

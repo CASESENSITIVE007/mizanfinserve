@@ -1,8 +1,14 @@
 "use client"
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Shield, Clock, Lock, Headset } from 'lucide-react';
 import { motion } from 'framer-motion';
-import SpotlightCard from './SpotlightCard';
+
+// Dynamically import SpotlightCard to improve initial page performance
+const SpotlightCard = dynamic(() => import('./SpotlightCard'), {
+  ssr: false,
+  loading: () => <div className="h-full min-h-[250px] border border-white/10 bg-[#11141b] rounded-2xl" />
+});
 
 const features = [
   { 
@@ -49,20 +55,24 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
+              className="h-full" // Ensure the motion container fills the grid space
             >
               <SpotlightCard 
                 className="h-full border border-white/10 bg-[#11141b] rounded-2xl overflow-hidden" 
-                spotlightColor="rgba(37, 99, 235, 0.15)" // Using a blue glow to match FinAudit
+                spotlightColor="rgba(197, 163, 88, 0.15)" // Changed to Gold glow to match Mizan brand
               >
                 <div className="p-8 h-full flex flex-col group">
-                  <div className="w-14 h-14 rounded-xl bg-blue-600/10 flex items-center justify-center text-[#c5a358] mb-8 group-hover:scale-110 group-hover:bg-[#a6853f] group-hover:text-white transition-all duration-300">
+                  {/* Container for Icon */}
+                  <div className="w-14 h-14 rounded-xl bg-[#c5a358]/10 flex items-center justify-center text-[#c5a358] mb-8 group-hover:scale-110 group-hover:bg-[#a6853f] group-hover:text-white transition-all duration-300">
                     {f.icon}
                   </div>
                   
-                  <h4 className="text-xl font-bold text-white mb-4 group-hover:text-[#a6853f] transition-colors">
+                  {/* Feature Title */}
+                  <h4 className="text-xl font-bold text-white mb-4 group-hover:text-[#c5a358] transition-colors">
                     {f.title}
                   </h4>
                   
+                  {/* Feature Description */}
                   <p className="text-gray-400 text-sm leading-relaxed">
                     {f.desc}
                   </p>
