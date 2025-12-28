@@ -17,7 +17,7 @@ const Banner = () => (
         </button>
       </div>
       {/* Decorative circle */}
-      <div className="absolute top-[-50%] right-[-10%] w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+      <div className="absolute top-[-50%] right-[-10%] w-96 h-96  rounded-full blur-3xl" />
     </motion.div>
   </div>
 );
