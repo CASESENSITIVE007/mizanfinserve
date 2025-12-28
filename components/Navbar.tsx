@@ -1,6 +1,8 @@
 'use client'
+
 import { motion } from 'framer-motion';
-import { Home, Briefcase, Info, Mail } from 'lucide-react'; // Adding icons for a true app-like feel
+import Image from 'next/image';
+import { Home, Briefcase, Info, Mail } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#home', icon: <Home size={20} /> },
@@ -11,18 +13,22 @@ const navItems = [
 
 const Navbar = () => (
   <>
-    {/* --- TOP NAVBAR (Desktop & Mobile Logo/CTA) --- */}
+    {/* --- TOP NAVBAR --- */}
     <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-8 py-3 bg-[#0a0c10]/80 backdrop-blur-md border-b border-white/5">
       <div className="flex items-center gap-3">
+        {/* Logo Container */}
         <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-full border border-[#c5a358]/30">
-          <img 
+          <Image 
             src="/logo.jpeg" 
             alt="Mizan Finserve Logo"
-            className="object-cover w-full h-full"
+            fill // Fills the parent container
+            className="object-cover"
+            sizes="(max-width: 768px) 40px, 48px" // Tells Next.js the size to optimize for
+            priority // Loads this image immediately (critical for LCP)
           />
         </div>
         <div className="flex flex-col">
-          <span className="text-base md:text-lg font-bold tracking-tight text-white leading-none">
+          <span className="text-base md:text-lg font-bold tracking-tight text-white leading-none uppercase">
             MIZAN
           </span>
           <span className="text-[8px] md:text-[10px] font-medium tracking-[0.2em] text-[#c5a358] uppercase">
@@ -31,7 +37,7 @@ const Navbar = () => (
         </div>
       </div>
 
-      {/* Desktop Navigation Links (Hidden on Mobile) */}
+      {/* Desktop Navigation Links */}
       <div className="hidden md:flex gap-10 text-sm font-medium text-gray-400">
         {navItems.map((item) => (
           <motion.a 
@@ -45,6 +51,7 @@ const Navbar = () => (
         ))}
       </div>
 
+      {/* CTA Button */}
       <motion.button 
         whileHover={{ scale: 1.05, backgroundColor: '#b08d44' }}
         whileTap={{ scale: 0.95 }}
@@ -54,7 +61,7 @@ const Navbar = () => (
       </motion.button>
     </nav>
 
-    {/* --- MOBILE BOTTOM TAB BAR (App-like Navigation) --- */}
+    {/* --- MOBILE BOTTOM TAB BAR --- */}
     <div className="md:hidden fixed bottom-0 left-0 w-full z-50 bg-[#0a0c10]/90 backdrop-blur-lg border-t border-white/10 pb-safe">
       <div className="flex justify-around items-center h-16 px-4">
         {navItems.map((item) => (

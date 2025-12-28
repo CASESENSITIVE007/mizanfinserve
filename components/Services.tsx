@@ -1,14 +1,7 @@
 "use client"
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { Shield, BarChart3, Lock } from 'lucide-react';
-
-// Dynamically import the heavy animation component
-const ElectricBorder = dynamic(() => import('./ElectricBorder'), {
-  ssr: false,
-  loading: () => <div className="w-full h-full rounded-[20px] border border-white/5 bg-[#11141b]" />
-});
 
 const services = [
   { 
@@ -47,38 +40,39 @@ const Services = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="flex flex-col h-full"
+            whileHover={{ y: -5 }} // Subtle lift on hover
+            className="group relative flex flex-col h-full"
           >
-            <ElectricBorder
-              className="flex flex-grow"
-              color="#c5a358"
-              speed={1.2} // Reduced slightly for better mobile performance
-              chaos={0.2} // Reduced slightly to save CPU cycles
-              thickness={2}
-              style={{ borderRadius: 20, height: '100%', width: '100%' }}
-            >
-              <div className="bg-[#11141b] p-8 h-full rounded-[20px] group flex flex-col w-full">
-                {/* Visual Placeholder */}
-                <div className="h-40 bg-gray-800/50 rounded-xl mb-6 overflow-hidden relative flex-shrink-0">
-                   <div className="absolute inset-0 bg-gradient-to-br from-[#c5a358]/10 to-transparent" />
-                   <div className="w-full h-full bg-[#1c212c] group-hover:scale-105 transition-transform duration-500" />
-                </div>
+            {/* The Gold Glow Effect Layer */}
+            <div className="absolute inset-0 bg-[#c5a358] opacity-0 blur-2xl group-hover:opacity-20 transition-opacity duration-500 rounded-[20px]" />
 
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center text-[#c5a358] bg-[#c5a358]/10 mb-6 group-hover:bg-[#c5a358] group-hover:text-black transition-colors duration-300 flex-shrink-0">
-                  {service.icon}
-                </div>
-                
-                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-                
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                  {service.desc}
-                </p>
-                
-                <button className="text-[#c5a358] text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all mt-auto">
-                  Learn More <span>→</span>
-                </button>
+            {/* The Main Card Container */}
+            <div className="relative z-10 bg-[#11141b] p-8 h-full rounded-[20px] border border-white/10 group-hover:border-[#c5a358]/50 transition-all duration-300 flex flex-col w-full shadow-2xl">
+              
+              {/* Visual Placeholder */}
+              <div className="h-40 bg-gray-800/50 rounded-xl mb-6 overflow-hidden relative flex-shrink-0">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#c5a358]/20 to-transparent" />
+                <div className="w-full h-full bg-[#1c212c] group-hover:scale-105 transition-transform duration-700" />
               </div>
-            </ElectricBorder>
+
+              {/* Icon Container */}
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center text-[#c5a358] bg-[#c5a358]/10 mb-6 group-hover:bg-[#c5a358] group-hover:text-black transition-all duration-300 flex-shrink-0 shadow-[0_0_15px_rgba(197,163,88,0.1)]">
+                {service.icon}
+              </div>
+              
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#c5a358] transition-colors">
+                {service.title}
+              </h3>
+              
+              <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                {service.desc}
+              </p>
+              
+              <button className="text-[#c5a358] text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all mt-auto group/btn">
+                Learn More 
+                <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
+              </button>
+            </div>
           </motion.div>
         ))}
       </div>

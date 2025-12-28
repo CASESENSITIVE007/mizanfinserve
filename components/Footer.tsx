@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import Image from 'next/image';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -18,11 +18,14 @@ const Footer = () => {
           <div className="mb-10 md:mb-0">
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-10 h-10 overflow-hidden rounded-full border border-[#c5a358]/30">
-                <img 
-                  src="/logo.jpeg" // Ensure this matches your public folder path
-                  alt="Mizan Finserve Logo"
-                  className="object-cover w-full h-full"
-                />
+                 <Image 
+                           src="/logo.jpeg" 
+                           alt="Mizan Finserve Logo"
+                           fill // Fills the parent container
+                           className="object-cover"
+                           sizes="(max-width: 768px) 40px, 48px" // Tells Next.js the size to optimize for
+                           priority // Loads this image immediately (critical for LCP)
+                         />
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold tracking-tight text-white leading-none">
