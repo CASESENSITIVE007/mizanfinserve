@@ -13,7 +13,7 @@ const services = [
   { 
     title: "Tax Advisory", 
     icon: <BarChart3 size={24}/>, 
-    desc: "Strategic tax planning to minimize liabilities." 
+    desc: "Comprehensive compliance checks ensuring your financial statements are accurate and adhere to regulations. This might have more text than others." 
   },
   { 
     title: "Risk Assurance", 
@@ -45,6 +45,7 @@ const Services = () => (
             className="flex" // Forces the motion div to expand to full height of the grid cell
           >
             <ElectricBorder
+              className="flex "
               color="#3b82f6"
               speed={1.5}
               chaos={0.3}
