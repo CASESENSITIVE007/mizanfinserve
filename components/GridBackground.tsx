@@ -1,40 +1,36 @@
 "use client"
-import React from 'react';
 
 const GridBackground = () => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none">
-      {/* Base Page Background */}
+    <div 
+      /* 'fixed' keeps it relative to the viewport.
+         'inset-0' stretches it to all edges.
+         'z-[-1]' ensures it is ALWAYS the bottom layer.
+         'pointer-events-none' makes clicks pass through it like it's not there.
+      */
+      className="fixed inset-0 -z-10 pointer-events-none select-none overflow-hidden"
+      aria-hidden="true"
+    >
+      {/* Base White Layer */}
       <div className="absolute inset-0 bg-white" />
-      
-      {/* Subtle Professional Grid Overlay */}
-      {/* Increased opacity from 0.08 to 0.15 for better visibility */}
-      <div className="absolute inset-0 opacity-[0.15]">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern 
-              id="grid" 
-              width="60" 
-              height="60" 
-              patternUnits="userSpaceOnUse"
-            >
-              <path 
-                d="M 60 0 L 0 0 0 60" 
-                fill="none" 
-                stroke="#0b162c" 
-                strokeWidth="1.5" /* Slightly thicker lines */
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
 
-      {/* Directional Mask: 
-          Moving the 'transparent' center to the top-left (0% 0%) 
-          forces the 'white' (visibility) toward the bottom-right.
-      */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,transparent_0%,white_100%)] opacity-90" />
+      {/* Grid Layer with CSS Masking */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #0b162c 1px, transparent 1px),
+            linear-gradient(to bottom, #0b162c 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+          opacity: 0.12,
+          maskImage: 'radial-gradient(circle at 0% 0%, black 20%, transparent 85%)',
+          WebkitMaskImage: 'radial-gradient(circle at 0% 0%, black 20%, transparent 85%)',
+        }}
+      />
+
+      {/* Subtle corner glow - adds depth without distraction */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,rgba(11,22,44,0.03)_0%,transparent_60%)]" />
     </div>
   );
 };
