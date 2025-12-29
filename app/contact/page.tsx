@@ -46,7 +46,7 @@ export default function ContactUs() {
   ];
 
   return (
-    <main className="bg-white dark:bg-[#0a0e27] mt-20 min-h-screen font-sans">
+    <main className=" dark:bg-[#0a0e27] pt-10  min-h-screen font-sans">
       
       {/* Hero Section */}
       <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">

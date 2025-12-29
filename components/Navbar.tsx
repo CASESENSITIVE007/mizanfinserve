@@ -37,7 +37,7 @@ const Navbar = () => (
       </motion.button>
     </nav>
 
-    <div className="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white/95 backdrop-blur-lg border-t border-gray-100 pb-safe shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
+    <div className="md:hidden  fixed bottom-0 left-0 w-full z-50 bg-white/95 backdrop-blur-lg border-t border-gray-100 pb-safe shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
       <div className="flex justify-around items-center h-16 px-4">
         {navItems.map((item) => (
           <motion.a key={item.name} href={item.href} className="flex flex-col items-center justify-center gap-1 text-[#0b162c]/60" whileTap={{ scale: 0.9 }}>

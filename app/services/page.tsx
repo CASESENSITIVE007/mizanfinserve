@@ -23,7 +23,7 @@ const ServiceCard = ({ icon: IconComponent, title, description }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="group relative bg-white dark:bg-[#161e29] rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-200 dark:border-slate-800 overflow-hidden h-full flex flex-col"
+      className="group relative  dark:bg-[#161e29] rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-200 dark:border-slate-800 overflow-hidden h-full flex flex-col"
     >
       {/* Dynamic Glowing Background (Desktop Only recommended, handled via opacity) */}
       <motion.div
@@ -87,7 +87,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="bg-[#f6f7f8] dark:bg-[#111921] min-h-screen font-sans selection:bg-[#197fe6] selection:text-white transition-colors duration-300">
+    <div className=" dark:bg-[#111921] min-h-screen font-sans selection:bg-[#197fe6] selection:text-white transition-colors duration-300">
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] mt-20 md:h-[75vh] flex items-center justify-center bg-slate-900 overflow-hidden px-4">
@@ -176,7 +176,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="bg-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((s, i) => (
               <ServiceCard key={i} {...s} />
             ))}
@@ -185,7 +185,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Final CTA */}
-   <section className="py-16 md:py-32 px-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+   <section className="py-16 md:py-32 px-4  dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
   <motion.div 
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
